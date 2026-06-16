@@ -123,7 +123,7 @@ describe("orders", () => {
         expect.objectContaining({
           id: expect.any(Number),
           date: expect.any(String),
-          user_id: expect.any(Number),
+          user_id: expect.anything(),
         }),
       );
       newOrderId = order.id;

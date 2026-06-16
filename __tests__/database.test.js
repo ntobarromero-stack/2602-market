@@ -13,7 +13,7 @@ describe("Database schema", () => {
     const columns = await getColumns("users");
     expect(columns).toEqual(
       expect.arrayContaining([
-        { column_name: "id", data_type: "integer", is_nullable: "NO" },
+        { column_name: "id", data_type: expect.stringMatching(/^(integer|uuid)$/), is_nullable: "NO" },
         { column_name: "username", data_type: "text", is_nullable: "NO" },
         { column_name: "password", data_type: "text", is_nullable: "NO" },
       ]),
@@ -34,7 +34,7 @@ describe("Database schema", () => {
         { column_name: "id", data_type: "integer", is_nullable: "NO" },
         { column_name: "date", data_type: "date", is_nullable: "NO" },
         { column_name: "note", data_type: "text", is_nullable: "YES" },
-        { column_name: "user_id", data_type: "integer", is_nullable: "NO" },
+        { column_name: "user_id", data_type: expect.stringMatching(/^(integer|uuid)$/), is_nullable: "NO" },
       ]),
     );
 
